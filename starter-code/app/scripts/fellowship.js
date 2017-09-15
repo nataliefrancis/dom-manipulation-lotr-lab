@@ -22,43 +22,82 @@ var body = document.querySelector('body');
 
 // Part 1
 
-
-function makeMiddleEarth() {
-  // create a section tag with an id of middle-earth
+// create a section tag with an id of middle-earth
   // inside, add each land as an article tag
   // inside each article tag include an h1 with the name of the land
   // append middle-earth to your document body
+function makeMiddleEarth() {
+  var middleEarth = document.createElement('section');
+    for(var i=0; i<lands.length; i++) {
+      var land = document.createElement("article");
+      var textNode = document.createTextNode(lands[i]);
+      var h1 = document.createElement("h1");
+      h1.appendChild(textNode);
+      land.appendChild(h1);
+      middleEarth.appendChild(land);
+    }
+  body.appendChild(middleEarth);
 }
 
 makeMiddleEarth();
 
 
 // Part 2
-
-function makeHobbits() {
   // display an unordered list of hobbits in the shire (which is the first article tag on the page)
   // give each hobbit a class of hobbit
+var theShire = body.querySelectorAll('article')[0];
+
+function makeHobbits() {
+  var hobbitList = document.createElement('ul');
+  for(var i=0; i<hobbits.length; i++) {
+    var createList = document.createElement('li');
+    createList.className = 'hobbit';
+    var textNode = document.createTextNode(hobbits[i]);
+    createList.appendChild(textNode);
+    hobbitList.appendChild(createList);
+  }
+  theShire.appendChild(hobbitList);
 }
 
+makeHobbits();
 
 // Part 3
-
-function keepItSecretKeepItSafe() {
-  // create a div with an id of 'the-ring'
+// create a div with an id of 'the-ring'
   // give the div a class of 'magic-imbued-jewelry'
   // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
   // add the ring as a child of Frodo
+
+function keepItSecretKeepItSafe() {
+  var theRing = document.createElement('div');
+  theRing.setAttribute('id', 'the-ring');
+  theRing.setAttribute('class', 'magic-imbued-jewelry');
+  theRing.addEventListener('click', nazgulScreech);
+  frodo.appendChild(theRing);
 }
+
+keepItSecretKeepItSafe();
+
 
 
 // Part 4
-
-
-function makeBuddies() {
   // create an aside tag
   // attach an unordered list of the 'buddies' in the aside
   // insert your aside as a child element of rivendell
+
+
+function makeBuddies() {
+  var aside = document.createElement('aside');
+  var buddyList = document.createElement('ul');
+  for(var i = 0, len = buddies.length; i < len; i++){
+    var buddy = document.createElement('li');
+    buddy.textContent = buddies[i];
+    buddyList.appendChild(buddy);
+  }
+  aside.appendChild(buddyList);
+  rivendell.appendChild(aside);
 }
+makeBuddies();
+
 
 
 // Part 5
