@@ -72,6 +72,7 @@ function keepItSecretKeepItSafe() {
   theRing.setAttribute('id', 'the-ring');
   theRing.setAttribute('class', 'magic-imbued-jewelry');
   theRing.addEventListener('click', nazgulScreech);
+  var frodo = hobbits[0]; //work on this, not working
   frodo.appendChild(theRing);
 }
 
@@ -105,8 +106,10 @@ makeBuddies();
 
 function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
+  buddies[3] = "Aragorn";
 }
 
+beautifulStranger();
 
 // Part 6
 
